@@ -1,0 +1,23 @@
+def count_letter(a, b): #a - список слов, b - буква для поиска
+  count_sum = 0
+  for word in a:
+    for letter in word:
+      if letter == b:
+        count_sum += 1
+  return count_sum
+
+list = []
+
+while True:
+  command = input("Введите команду: ")
+  if command == "Добавить слово":
+    words = input("Введите слово: ")
+    list.append(words)
+    print ("Слово добавлено в список")
+  elif command == "Введите букву":
+    letter = input("Введите букву для поиска: ")
+    result = count_letter(list, letter)
+    print(result, letter, "в списке", list)
+  else:
+    print("Неизвестная команда.")
+    break
