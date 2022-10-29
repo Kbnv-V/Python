@@ -1,0 +1,11 @@
+import telebot
+
+token = "5538578746:AAFrTF_m5IuJZeALhtnHt0pa2a1q5iGrIUw"
+
+bot = telebot.TeleBot(token)
+
+@bot.message_handler(content_types=["text"]) #этот синтаксис регистрирует функцию ниже как обработчик для сообщений типа "text"
+def echo(message):
+    bot.send_message(message.chat.id, message.text)
+
+bot.polling(none_stop=True) #эта функция постоянно обращается к серверам tg
