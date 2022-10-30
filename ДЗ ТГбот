@@ -1,0 +1,17 @@
+import telebot
+
+token = "5787449886:AAHYuh9mQG_Q4tES-1lGwjEXDg_PTTldmP8"
+
+bot = telebot.TeleBot(token)
+
+word = "Вова"
+
+@bot.message_handler(content_types=["text"]) #этот синтаксис регистрирует функцию ниже как обработчик для сообщений типа "text"
+def echo(message):
+    if word in message.text:
+        text = "Ба! Какие люди"
+        bot.send_message(message.chat.id, text)
+    else:
+        text = message.text
+        bot.send_message(message.chat.id, text)
+bot.polling(none_stop=True)
