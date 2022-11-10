@@ -1,7 +1,7 @@
 import telebot
 import random
 
-token = ""
+token = "5794969032:AAEqMMpdtuThQHVuMdENuKSMiK4syNFqtRc"
 
 bot = telebot.TeleBot(token)
 
@@ -57,6 +57,7 @@ def show(message):# message.text = /print(date)
         text = date.upper() + "\n" #upper - верхний регистр
         for task in tasks[date]:
             text = text + "[] " + task + "\n"
+            bot.send_message(message.chat.id, text)
     else:
         text = "Задач на эту дату нет."
         bot.send_message(message.chat.id, text)
