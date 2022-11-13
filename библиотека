@@ -1,0 +1,29 @@
+Help = """
+help - напечатать справку о программе;
+add - добавить книгу в библиотеку;
+find - найти книгу;
+"""
+
+file = open("knigi.txt", "a")
+
+run = True
+while run:
+    command = input("Введите команду: ")
+    if command == "help":
+        print(Help)
+    elif command == "add":
+        title = input("Введите название и автора книги, количество страниц, полку хранения: ")
+        file.write(title + "\n")
+    elif command == "find":
+        title = input("Введите название книги для поиска: ")
+        sub_string = title
+        file = open("knigi.txt", "r")
+        lines = file.readlines()
+        for line in lines:
+            if sub_string in line:
+                print(line)
+                break
+        else:
+            print("Такой книги нет")
+    else:
+        print("Неизвестная команда.")
